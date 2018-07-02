@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">	
+<head><meta http-equiv="content-type" content="text/html; charset=utf-8" />{% load static %}
+<link rel="icon"  href="{%static 'Manzana.ico' %}" />
+<link href="style.css" rel="stylesheet" type="text/css">
+<title>MUSEOS MADRID</title></head>
+<body>
+<div id="wrap">
+<div id="header"><br/><h3> </h3>
+<h1>¡¡¡Bienvenido a los museos de Madrid!!!</h1>
+</div>
+<img  src="/static/header.jpg" width="790" height="228" alt="" />
+<div id="avmenu">
+    <h2 class="hide">Menu:</h2>
+    <ul>
+    {% block menu %}{% endblock %}
+    {% block usuarios %}{% endblock %}
+    </ul>
+ </div>  
+<div class="announce"></div>
+<div id="extras">
+ {% if autentificado %}
+    <form id="form1" method="post" action="/logout">
+      {% csrf_token %}
+      <p class="welcome"><h3>Welcome {{ usuario }}</h3></p>
+      <input type="submit" class="submit_button" name="Submit" value="Logout"/>
+    </form>
+  {% else %}
+    <p class="welcome"><h2>¡¡Welcome!!</h2></h3>Escriba su usuario: </h3></p>
+    <form id="form1" method="post" action="/login">
+      {% csrf_token %}
+      <p><label><h3>Username</h3>
+      <input type="text" class="fields" name="username"/>
+      </label>
+      <label><h3>Password</h3>
+      <input type="password" class="fields" name="password"/>
+      <input type="submit" class="submit_button" name="Submit" value="Login"/>
+      </label></p>
+    </form>
+  {% endif %}
+  </div>
+<div id="content">
+</div>
+<div id="right">
+  <p>{% block contenido %}{% endblock %}</p>
+  {% block options %}{% endblock %}
+</div>
+<img  src="/static/pom_bas.jpg" />
+<div id="footer">
+Copyright &copy; 2007 (Cristina del Río). Esta aplicacion usa los datos del portal de datos abiertos del Ayuntamiento de Madrid  | <a href="https://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=118f2fdbecc63410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default">Datos del Ayuntamiento de Madrid.</a></div>
+</div>
+</body>
+</html>

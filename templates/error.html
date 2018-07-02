@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+{% block menu %}
+    <li id="active"><a href="/" id="current">Inicio</a></li>
+    <li><a href="/museos">Todos</a></li>
+    <li><a href="/about">About</a></li>
+{% endblock %}
+
+{% block contenido %}</br></br></br></br>
+  {{ error|safe }}
+{% endblock %}

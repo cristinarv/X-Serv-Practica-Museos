@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+{% block menu %}
+  <li id="active"><a href="/" id="current">Inicio</a></li>
+  <li><a href="/museos">Todos</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="{{nombre}}/xml">Xml</a></li>
+  <li id="active"><a href="{{nombre}}/json" id="current">Json</a></li>
+{% endblock %}
+
+{% block contenido %}</br></br></br></br></br></br></br></br></br></br></br>
+  {{ titulo | safe}}
+    {% if acceso %}
+      <form action="/titulo_nuevo" method="POST">
+        {% csrf_token %}
+        <h3>Cambiar titulo:</h3>
+        <textarea name="título" rows="1" cols="20" ></textarea><br>
+        <input type="submit" value="Enviar">
+      </form>
+         <form action="/estilo_nuevo" method="POST">
+           {% csrf_token %} </br>
+           <h3>Cambiar tamaño: </h3>
+              <input class="textbox" type="text" name="tamano" value="50"></br></br>
+           <h3>Cambiar color:</h3>
+             <input class="textbox" type="text" name="color" value="black"></br></br>
+             <input class="boton" type="submit" value="Enviar"></br></br></br>
+         </form>
+    {% endif %}
+  {{respuesta | safe }}
+  <h4> Páginas que están disponibles:</h4>
+  {{ ans | safe }}
+{% endblock %}

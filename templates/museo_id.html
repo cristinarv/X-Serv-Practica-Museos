@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block menu %}
+    <li id="active"><a href="/" id="current">Inicio</a></li>
+	<li><a href="/museos">Todos</a></li>
+    <li><a href="/about">About</a></li>
+{% endblock %}
+
+	{% block contenido %}
+		</br></br></br></br>
+		<div class="info">
+		{{respuesta|safe}}</div>
+		{% if seleccion %}
+			<div class= "seleccionados">
+				<form action="" method="POST">
+					{% csrf_token %}
+					<input type="submit" value="Pulse si quiere seleccionar este museo">
+				</form>
+			</div>
+		{% endif %}
+		{% if comentar %}
+			<div class= "Escriba un comentario, por favor: ">
+					{{form | safe}}
+			</div>
+		{% endif %}
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "index.html" %}
+{% block menu %}
+    <li id="active"><a href="/" id="current">Inicio</a></li>
+    <li><a href="/museos">Todos</a></li>
+    <li><a href="/about">About</a></li>
+{% endblock %}
+
+{% block contenido %}</br></br></br></br>
+    <h2>Funcionamiento de la práctica:</h2>
+    <h3>Recursos:</h3>
+        <h4>/:</h4>
+         Muestra un listado de los 5 museos más seleccionados<br>
+         Para cada museo se muestra su nombre (que es un enlace que apunta a la URL del museo
+         en el portal esmadrid), su dirección y un enlace "Más información" que apunta a la página del museo
+         dentro de la aplicación.<br>
+         En el lateral, muestra un listado con enlaces a las páginas personales disponibles.
+         Para cada página personal se muestra el usuario y el titulo de su página.<br>
+         También se muestra un botón que activa o desactiva la accesibilidad.
+         
+        <h4>/usuario:</h4>
+        Corresponde al usuario "usuario". Muestra los museos seleccionados por ese usuario. 
+        Una vez el usuario se ha autenticado, podrá cambiar el color de fondo y la letra de todo el sitio con un formulario.
+        También podrá elegir el titulo de su página personal.
+     
+        <h4>/museos:</h4>
+        Página con todos los museos. Para cada museo muestra el nombre y un enlace a su página personal.
+        Cuenta con un menú desplegable para filtrar según el distrito.
+
+        <h4>/museos/id:</h4>
+        Página de un museo en la aplicación. Se muestra una descripción del museo, si es accesible o no,
+        el horario, su direccion y datos de contacto. Tambien se muestran los comentarios
+        que se han hecho sobre él.
+        Una vez el usuario se ha autenticado, muestra un formulario para poner un comentario al museo.
+
+        <h4>usuario/xml:</h4>
+        Canal XML para los museos seleccionados por ese usuario.
+    
+        <h4>/cargar:</h4>
+        Cada vez que pulses en el botón, guardas en la base de datos toda la información de los museos.
+    
+        <h4>/about:</h4>
+        Es esta página(Página con información sobre autoría y funcionamiento de la aplicación).
+{% endblock %}
+
+
+
+
+
+
